@@ -22,4 +22,6 @@ public partial class InsurancePayment
     public string? Type { get; set; }
 
     public string? Note { get; set; }
+
+    public string? SubscriptionId { get; set; }
 }

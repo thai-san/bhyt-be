@@ -79,8 +79,7 @@ namespace BHYT.API.Controllers
                                     IsUsed = false,
                                     IsRevoked = false,
                                     IssuedAt = DateTime.UtcNow,
-                                    //ExpiredAt = DateTime.UtcNow.AddHours(Convert.ToInt64(_configuration["Jwt:RefreshTokenExpiryTimeInHour"]))
-                                    ExpiredAt = DateTime.UtcNow.AddHours(10)
+                                    ExpiredAt = DateTime.UtcNow.AddHours(Convert.ToInt64(_configuration["Jwt:RefreshTokenExpiryTimeInHour"]))
                                 };
 
                                 await _context.RefreshTokens.AddAsync(refreshTokenEntity);
@@ -99,7 +98,8 @@ namespace BHYT.API.Controllers
                                     Account = new {
                                         account.Id,
                                         account.Username,
-                                    }
+                                    },
+                                    userId = user.Id
                                 });
                             }
                             return BadRequest(new ApiResponse { Message = "invalid password !" });

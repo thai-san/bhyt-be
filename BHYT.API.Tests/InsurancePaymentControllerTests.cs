@@ -84,7 +84,7 @@ namespace BHYT.API.Tests
             var result =  _controller.GetUserInsurancePayment(testId);
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var expectedJson = "{\"insurancePayments\":[{\"Guid\":null,\"PolicyId\":null,\"Date\":null,\"Amount\":null,\"Status\":null,\"Type\":null,\"Note\":null}]}";
+            var expectedJson = "{\"insurancePayments\":[{\"Guid\":null,\"PolicyId\":null,\"Date\":null,\"Amount\":null,\"Status\":null,\"Type\":null,\"Note\":null,\"SubscriptionId\":null}]}";
             var actualJson = JsonConvert.SerializeObject(okResult.Value);
             Assert.Equal(expectedJson, actualJson);
 

@@ -22,11 +22,6 @@ namespace BHYT.API.Tests
                .Options;
             _mockContext = new Mock<BHYTDbContext>(options);
             _mockMapper = new Mock<IMapper>();
-            _mockMapper.Setup(m => m.ConfigurationProvider).Returns(() => new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Account, RegisterDTO>();
-                cfg.CreateMap<User, RegisterDTO>();
-            }));
             _controller = new RegisterController(_mockContext.Object, _mockMapper.Object);
         }
 

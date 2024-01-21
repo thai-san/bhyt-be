@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BHYT.API.Models.DbModels
 {
-    [Table("Account")]
     public class Account
     {
         public Account()
