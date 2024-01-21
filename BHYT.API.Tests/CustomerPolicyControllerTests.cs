@@ -93,7 +93,7 @@ namespace BHYT.API.Tests
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var expectedJson = "{\"customerPolicy\":{\"Guid\":null,\"StartDate\":null,\"CreatedDate\":null,\"EndDate\":null,\"PremiumAmount\":null,\"PaymentOption\":null,\"CoverageType\":null,\"DeductibleAmount\":null,\"BenefitId\":null,\"InsuranceId\":null,\"LatestUpdate\":null,\"Description\":null,\"Status\":null,\"Company\":null}}";
+            var expectedJson = "{\"customerPolicy\":{\"Id\":1,\"Guid\":null,\"StartDate\":null,\"CreatedDate\":null,\"EndDate\":null,\"PremiumAmount\":null,\"PaymentOption\":null,\"CoverageType\":null,\"DeductibleAmount\":null,\"BenefitId\":null,\"InsuranceId\":null,\"LatestUpdate\":null,\"Description\":null,\"Status\":null,\"Company\":null}}";
             var actualJson = JsonConvert.SerializeObject(okResult.Value);
             Assert.Equal(expectedJson, actualJson);
         }

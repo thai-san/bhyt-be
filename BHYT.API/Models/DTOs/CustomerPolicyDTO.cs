@@ -5,6 +5,8 @@ namespace BHYT.API.Models.DbModels;
 
 public partial class CustomerPolicyDTO
 {
+    public int Id { get; set; }
+
     public Guid? Guid { get; set; }
 
     public DateTime? StartDate { get; set; }
