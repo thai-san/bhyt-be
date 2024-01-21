@@ -79,7 +79,8 @@ namespace BHYT.API.Controllers
                                     IsUsed = false,
                                     IsRevoked = false,
                                     IssuedAt = DateTime.UtcNow,
-                                    ExpiredAt = DateTime.UtcNow.AddHours(Convert.ToInt64(_configuration["Jwt:RefreshTokenExpiryTimeInHour"]))
+                                    //ExpiredAt = DateTime.UtcNow.AddHours(Convert.ToInt64(_configuration["Jwt:RefreshTokenExpiryTimeInHour"]))
+                                    ExpiredAt = DateTime.UtcNow.AddHours(10)
                                 };
 
                                 await _context.RefreshTokens.AddAsync(refreshTokenEntity);

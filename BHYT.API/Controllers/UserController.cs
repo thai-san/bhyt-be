@@ -108,5 +108,34 @@ namespace BHYT.API.Controllers
                 });
             }
         }
+        [HttpGet("get-user")]
+        public async Task<IActionResult> GetUserData(string email)
+        {
+            try
+            {
+                var userData = _context.Users.FirstOrDefault(x => x.Email == email);
+                if (userData != null)
+                {
+                    var result = _context.CustomerPolicies.FirstOrDefault(x => x.CustomerId == userData.Id);
+                    if (result != null)
+                    {
+                        return Ok(new ApiResponse { Success = true, Message = "Get Policies Successfully!", Data = result });
+                    }
+                    return NotFound(new ApiResponse { Success = false, Message = "Not Found Policies" });
+                }
+                return NotFound(new ApiResponse { Success = false, Message = "Not Found Email!" });
+
+            }
+            catch
+            {
+                return Conflict(new ApiResponseDTO
+                {
+                    Message = "user role can't be found"
+                });
+            }
+        }
+
     }
+
+
 }
